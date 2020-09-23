@@ -1,0 +1,66 @@
+﻿
+@model HW_6.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="pageHeader">New Trip</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <h3 class="Form-Titles">Trip Name</h3>
+                <input asp-for="Title" class="form-box" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h3 class="Form-Titles">Trip Location</h3>
+                <input type="text" asp-for="Address" rows="15" class="form-box" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h3 class="Form-Titles">Date</h3>
+                <p id="to"><input type="date" asp-for="Start_Date" rows="15" class="form-boxdate" /> to <input type="date" asp-for="End_Date" rows="15" class="form-boxdate" /></p>
+                <span asp-validation-for="Start_Date" class="text-danger"></span>
+                <span asp-validation-for="End_Date" class="text-danger"></span>
+            </div>
+            <div>
+                <h3 class="Form-Titles">Add an Image</h3>
+                <input name="newImage" type="file" />
+            </div>
+            <div class="form-group">
+                <h3 class="Form-Titles">Trip Details</h3>
+                <textarea asp-for="Trip_Detail" rows="15" class="form-boxdetails"></textarea>
+                <span asp-validation-for="Trip_Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h3 class="Form-Titles">List</h3>
+                <textarea asp-for="List" rows="15" class="form-boxlist"></textarea>
+                <span asp-validation-for="List" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h3 class="Form-Titles">Directions</h3>
+                <textarea asp-for="Directions" rows="15" class="form-boxdirections"></textarea>
+                <span asp-validation-for="Directions" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Create" class="create_trip" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>tinymce.init({ selector: 'textarea' });</script>
+}
+
+

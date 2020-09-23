@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HW_6.Models.BlogPost>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService Authorization
+@{
+    var canAdd = (await Authorization.AuthorizeAsync(User, MyIdentityData.BlogPolicy_Add)).Succeeded;
+    var canEdit = (await Authorization.AuthorizeAsync(User, MyIdentityData.BlogPolicy_Edit)).Succeeded;
+    var canDelete = (await Authorization.AuthorizeAsync(User, MyIdentityData.BlogPolicy_Delete)).Succeeded;
+}
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="trip_header">Trip Index</h1>
+<br />
+<br />
+
+@if (canAdd)
+{
+    <p class="add_trip">
+        <a asp-action="Create">+ Add Trip</a>
+    </p>
+}
+@foreach (var item in Model)
+{
+    <a asp-action="Details" asp-route-id="@item.Id" class="h1">
+        <div class="section">
+
+            <div>
+                @if (@item.Image != null)
+                {
+                    var img = String.Format("data:image/gif;base64,{0}", @item.Image);
+                    <img class="index_img" src="@img" />
+                }
+            </div>
+            <div class="inex_title">
+                @item.Title
+                <br>
+                <div class="index_date">@item.Start_Date</div>
+            </div>
+        </div>
+    </a>
+    <br/>
+    <p>
+        @if (canEdit)
+        {
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+        }
+        @if (canDelete)
+        {
+            <span> | </span>
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        }
+    </p>
+    <p>
+        @Html.Raw(item.Body)
+    </p>
+}

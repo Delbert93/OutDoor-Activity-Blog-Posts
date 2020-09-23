@@ -1,0 +1,323 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+.mainpage {
+    background-image: url(/guy-2616903_960_720.jpg);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+.main_page_header {
+    text-align: center;
+    color: #007DC4;
+    font-family: Montserrat;
+}
+.main_page_catch {
+    text-align: center;
+    color: #007DC4;
+    font-family: Montserrat;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.logo {
+    height: auto;
+    margin-right: 10%;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    z-index: 1;
+}
+.Title{
+    text-align: center;
+}
+.pageHeader {
+    text-align: center;
+    font-size: 30pt;
+    font-family: Helvetica Neue;
+    color: #007DC4;
+}
+.detailspageHeader {
+    text-align: center;
+    font-size: 40pt;
+    font-family: Montserrat;
+    color: #7F7F7F;
+}
+/*Tirp index page*/
+.trip_header {
+    text-align: center;
+    font-size: 30pt;
+    font-family: Helvetica Neue;
+    color: #007DC4;
+}
+.add_trip {
+    font-family: Montserrat;
+    font-size: 14pt;
+    background-color: #F4F4F4;
+    width: 20%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 8pt;
+    text-align: center;
+    margin-left: 40%;
+}
+.section {
+    background-color: #F4F4F4;
+    padding-top: 3%;
+    padding-right: 2%;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    border-radius: 8pt;
+    overflow: auto
+}
+.section:hover {
+    background-color: #C8C8C8;
+    transition-duration: .25s;
+}
+.index_img {
+    width: 18%;
+    height: auto;
+    display: inline-block;
+    padding-right: 3%;
+    float: left;
+}
+.inex_title {
+    font-family: Montserrat;
+    color: #020202;
+    display: inline-block
+}
+.index_date {
+    font-family: Montserrat;
+    font-size: 20pt;
+    color: #020202;
+    display: inline-block
+}
+/*Creat page*/
+.Datebox {
+    text-align: center;
+    border: 1pt solid #707070;
+    width: 20%;
+    margin-left: 40%;
+}
+.weathermap {
+    text-align: center;
+}
+.Form-Titles {
+    font-family: Futura Lt BT;
+    font-size: 25pt;
+    color: #333333;
+}
+.form-box {
+    border: 1px solid #007DC4;
+    border-radius: 4pt;
+    width: 100%;
+}
+.form-boxdate {
+    border: 1px solid #007DC4;
+    border-radius: 4pt;
+    width: 12%;
+}
+#to {
+    font-size: 15pt;
+    font-family: Futura Lt BT;
+    color: #777777;
+}
+.form-boxlist {
+    border: 1px solid #8AC345;
+    border-radius: 4pt;
+    width: 100%;
+}
+.form-boxdetails {
+    border: 1px solid #007DC4;
+    width: 100%;
+}
+.form-boxdirections {
+    border: 1px solid #007DC4;
+    width: 100%;
+}
+.create_trip {
+    margin-left: 50%;
+    border-radius: 9pt;
+    width: 25%;
+    height: 40%;
+    font-size: 18pt;
+    font-family: Futura;
+    color: #FFFFFF;
+    background-color: #007DC4;
+}
+.create_trip:hover {
+    background-color: #F69429;
+}
+/*details page*/
+.detailstitle {
+    font-family: Arial;
+    font-size: 40pt;
+    text-align: center;
+    color: #7F7F7F;
+}
+.image {
+    margin-left: 0%;
+    width: 100%;
+    height: 500px;
+}
+.bar {
+    border-bottom: 2pt solid #F69429;
+}
+.detailsheaders {
+    font-family: Arial;
+    font-size: 20pt;
+    text-align: left;
+    color: #007DC4;
+}
+.detailsheadersweather {
+    font-family: Arial;
+    font-size: 20pt;
+    border-bottom: 2pt solid #F69429;
+    text-align: center;
+    padding-top: 5%;
+    color: #007DC4;
+}
+.detailsdate {
+    text-align: center;
+}
+.info {
+    font-family: Arial;
+    font-size: 12pt;
+    text-align: left;
+    color: #7F7F7F;
+}
+.weatherinfo {
+    font-family: Arial;
+    font-size: 12pt;
+    text-align: left;
+    padding-top: 1%;
+    color: #7EB23F;
+}
+.mapheader {
+    font-family: Arial;
+    font-size: 20pt;
+    border-bottom: 2pt solid #F69429;
+    text-align: center;
+    padding-top: 2%;
+    color: #007DC4;
+}
+.map {
+    margin-left: 0%;
+    width: 100%;
+    height: 500px;
+}
+.comment {
+    background-color: #F4F4F4;
+    padding-top: 3%;
+    padding-right: 2%;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    border-radius: 8pt;
+}
+.detailsheaderscomment {
+    font-family: Arial;
+    font-size: 20pt;
+    text-align: center;
+    padding-top: 10%;
+    color: #007DC4;
+}
+.savebtn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+.savebtn-primary {
+    color: #fff;
+    background-color: #007DC4;
+    border-color: #007bff;
+    margin-left: 40%;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 18pt;
+    border-radius: 8pt;
+}
+.savebtn-primary:hover {
+    color: #fff;
+    background-color: #F69429;
+    border-color: #F69429;
+}
+/*edit page*/
+.editeheader {
+    font-family: Montserrat;
+    text-align: center;
+}
+/*delete page*/
+.deleteform {
+    text-align: center;
+}
+.delete_button {
+    background-color: #F69429;
+
+}
+/*Rubric*/
+.Rubric{
+    text-align: left;
+}

@@ -1,0 +1,73 @@
+﻿@model HW_6.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1 class="editeheader">Edit Trip Information</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <h3 class="Form-Titles">Trip Name</h3>
+                <input asp-for="Title" class="form-box" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h3 class="Form-Titles">Trip Location</h3>
+                <input type="text" asp-for="Address" rows="15" class="form-box">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h3 class="Form-Titles">Start Date</h3>
+                <input type="date" asp-for="Start_Date" rows="15" class="form-boxdate">
+                <span asp-validation-for="Start_Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h3 class="Form-Titles">End Date</h3>
+                <input type="date" asp-for="End_Date" rows="15" class="form-boxdate">
+                <span asp-validation-for="End_Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h3 class="Form-Titles">Trip Details</h3>
+                <textarea asp-for="Trip_Detail" rows="15" class="form-boxdetails"></textarea>
+                <span asp-validation-for="Trip_Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h3 class="Form-Titles">List</h3>
+                <input type="text" asp-for="List" rows="15" class="form-boxlist">
+                <span asp-validation-for="List" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h3 class="Form-Titles">Directions</h3>
+                <textarea asp-for="Directions" rows="15" class="form-boxdirections"></textarea>
+                <span asp-validation-for="Directions" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h3 class="Form-Titles">Change Image</h3>
+                <input asp-for="Image" name="newImage" type="file" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

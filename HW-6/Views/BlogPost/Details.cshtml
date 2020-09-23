@@ -1,0 +1,89 @@
+﻿@model HW_6.Models.BlogPost
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService Authorization
+@{
+    var canEdit = (await Authorization.AuthorizeAsync(User, MyIdentityData.BlogPolicy_Edit)).Succeeded;
+}
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <div>
+        <dd class="detailstitle">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        @if (Model.Start_Date != null && Model.End_Date != null)
+        {
+            <dd class="detailsdate">
+                <p>@Html.DisplayFor(model => model.Start_Date) to @Html.DisplayFor(model => model.End_Date)</p>
+            </dd>
+        }
+        <dd>
+            @if (Model.Image != null)
+            {
+                var img = String.Format("data:image/gif;base64,{0}", Model.Image);
+                <img class="image" src="@img" />
+            }
+        </dd>
+        <p class="bar"></p>
+        @if (Model.Trip_Detail != null)
+        {
+            <h3 class="detailsheaders">Trip Details</h3>
+            <dd class="info">
+                @Html.Raw(Model.Trip_Detail)
+            </dd>
+        }
+        @if (Model.List != null)
+        {
+            <h3 class="detailsheaders">List</h3>
+            <dd class="info">
+                @Html.DisplayFor(model => model.List)
+            </dd>
+        }
+        @if (Model.Directions != null)
+        {
+            <h3 class="detailsheaders">Directions</h3>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Directions)
+            </dd>
+        }
+        @if (Model.Address != null)
+        {
+            <h3 class="detailsheadersweather">Weather Information</h3>
+            <div class="weathermap">
+                <p class="weatherinfo">Current temperature: @ViewData["curTemp"]</p>
+                <p class="weatherinfo">Forcasted temperature: @ViewData["futTemp"]</p>
+                <p class="weatherinfo">Cloud cover: @ViewData["cloud"]</p>
+                <p class="weatherinfo">Weather Summary: @ViewData["summ"]</p>
+                <p class="mapheader">Map</p>
+                <iframe class="map" frameborder="0" style="border:0" src=@ViewData["map"] allowfullscreen></iframe>
+            </div>
+        }
+        @if (Model.Image == null){
+            <h3 class="detailsheaderscomment">Comment Below</h3>
+            @foreach (var c in Model.Comments)
+            {
+                <dd class="comment">
+                    @c.CommentText
+                </dd>
+            }
+            <form asp-action="Details">
+                <div class="form-group">
+                    <label>Add a comment</label>
+                    <input type="text" name="comment" rows="15" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="blogPostId" value="@Model.Id" />
+                    <input type="submit" value="Save" class="savebtn savebtn-primary" />
+                </div>
+            </form>
+        }
+    </div>
+<div>
+    @if (canEdit)
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    }
+    <a asp-action="Index">Back to List</a>
+</div>
+

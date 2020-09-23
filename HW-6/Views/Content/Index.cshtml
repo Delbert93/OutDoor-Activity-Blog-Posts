@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    var blogPost = Context.Items["blogpost"] as BlogPost;
+}
+<h1>Index</h1>
+
+<p>@ViewData["permalink"]</p>
+<h1>@blogPost.Title</h1>
+<p>@blogPost.Body</p>
+<p>@blogPost.Footer</p>
+
