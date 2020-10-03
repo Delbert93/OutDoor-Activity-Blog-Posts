@@ -90,7 +90,7 @@ namespace HW_6.Controllers
                 ViewData["cloud"] = (string)jObject1["daily"]["data"][0]["cloudCover"];
                 ViewData["summ"] = (string)jObject1["daily"]["summary"];
                 ////url for google map api that takes a lat and lng from the location api
-                //ViewData["map"] = $"https://www.google.com/maps/embed/v1/search?key=AIzaSyAYX22qQW38R2hxpLej-3cEpmQJjluw0vw&q={lat},{lng}";
+                ViewData["map"] = $"https://www.google.com/maps/embed/v1/search?key=AIzaSyAYX22qQW38R2hxpLej-3cEpmQJjluw0vw&q={lat},{lng}";
             }
 
             return View("Details", blogPost);
