@@ -73,22 +73,19 @@ namespace HW_6.Controllers
             if (keyAddres != null)
             {
                 // beginning of my location api
-                keyAddres = "410 South 300 East, Ephraim, Utah, 84627, United States";
                 //Todo write catch that provides a good message for the times that result is empty or the api call is bad
                 var locationResponse = await locationClient.GetStringAsync($"https://api.opencagedata.com/geocode/v1/json?q={keyAddres}&key=20ca7d134ab94eb5bab456e67d8038e6");
-                var jObject = JObject.Parse(locationResponse);
-                ViewData["lat"] = (string)jObject["results"][0]["geometry"]["lat"];
-                ViewData["lng"] = (string)jObject["results"][0]["geometry"]["lng"];
+                var geoLocationApiResponse = JObject.Parse(locationResponse);
                 //beginning of my weather api
                 var weatherClient = new HttpClient();
-                string lat = (string)jObject["results"][0]["geometry"]["lat"];
-                string lng = (string)jObject["results"][0]["geometry"]["lng"];
+                string lat = (string)geoLocationApiResponse["results"][0]["geometry"]["lat"];
+                string lng = (string)geoLocationApiResponse["results"][0]["geometry"]["lng"];
                 var locationWeatherResponse = await weatherClient.GetStringAsync($"https://api.darksky.net/forecast/bd1108cdcba19b14fc8324d4d7f2231d/{lat},{lng}");
-                var jObject1 = JObject.Parse(locationWeatherResponse);
-                ViewData["curTemp"] = (string)jObject1["currently"]["temperature"];
-                ViewData["futTemp"] = (string)jObject1["daily"]["data"][0]["temperatureHigh"];
-                ViewData["cloud"] = (string)jObject1["daily"]["data"][0]["cloudCover"];
-                ViewData["summ"] = (string)jObject1["daily"]["summary"];
+                var weatherApiResponse = JObject.Parse(locationWeatherResponse);
+                ViewData["curTemp"] = (string)weatherApiResponse["currently"]["temperature"];
+                ViewData["futTemp"] = (string)weatherApiResponse["daily"]["data"][0]["temperatureHigh"];
+                ViewData["cloud"] = (string)weatherApiResponse["daily"]["data"][0]["cloudCover"];
+                ViewData["summ"] = (string)weatherApiResponse["daily"]["summary"];
                 ////url for google map api that takes a lat and lng from the location api
                 ViewData["map"] = $"https://www.google.com/maps/embed/v1/search?key=AIzaSyAYX22qQW38R2hxpLej-3cEpmQJjluw0vw&q={lat},{lng}";
             }

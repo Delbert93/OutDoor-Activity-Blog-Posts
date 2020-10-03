@@ -22,6 +22,18 @@
 }
 @foreach (var item in Model)
 {
+    <br />
+    <p>
+        @if (canEdit)
+        {
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+        }
+        @if (canDelete)
+        {
+            <span> | </span>
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        }
+    </p>
     <a asp-action="Details" asp-route-id="@item.Id" class="h1">
         <div class="section">
 
@@ -39,18 +51,6 @@
             </div>
         </div>
     </a>
-    <br/>
-    <p>
-        @if (canEdit)
-        {
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-        }
-        @if (canDelete)
-        {
-            <span> | </span>
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        }
-    </p>
     <p>
         @Html.Raw(item.Body)
     </p>
