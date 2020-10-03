@@ -73,10 +73,10 @@ namespace HW_6.Controllers
             if (keyAddres != null)
             {
                 // beginning of my location api
-                var locationResponse = await locationClient.GetStringAsync($"https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAYX22qQW38R2hxpLej-3cEpmQJjluw0vw&address={keyAddres}&sensor=flase");
+                var locationResponse = await locationClient.GetStringAsync($"https://api.opencagedata.com/geocode/v1/json?q=1859410South300East,Ephraim,Utah,84627,UnitedStates&key=20ca7d134ab94eb5bab456e67d8038e6");
                 var jObject = JObject.Parse(locationResponse);
-                ViewData["lat"] = (string)jObject["results"][0]["geometry"]["location"]["lat"];
-                ViewData["lng"] = (string)jObject["results"][0]["geometry"]["location"]["lng"];
+                ViewData["lat"] = (string)jObject["results"][2]["geometry"]["lat"];
+                ViewData["lng"] = (string)jObject["results"][2]["geometry"]["lng"];
                 //beginning of my weather api
                 var weatherClient = new HttpClient();
                 string lat = (string)jObject["results"][0]["geometry"]["location"]["lat"];
@@ -87,8 +87,8 @@ namespace HW_6.Controllers
                 ViewData["futTemp"] = (string)jObject1["daily"]["data"][0]["temperatureHigh"];
                 ViewData["cloud"] = (string)jObject1["daily"]["data"][0]["cloudCover"];
                 ViewData["summ"] = (string)jObject1["daily"]["summary"];
-                //url for google map api that takes a lat and lng from the location api
-                ViewData["map"] = $"https://www.google.com/maps/embed/v1/search?key=AIzaSyAYX22qQW38R2hxpLej-3cEpmQJjluw0vw&q={lat},{lng}";
+                ////url for google map api that takes a lat and lng from the location api
+                //ViewData["map"] = $"https://www.google.com/maps/embed/v1/search?key=AIzaSyAYX22qQW38R2hxpLej-3cEpmQJjluw0vw&q={lat},{lng}";
             }
 
             return View("Details", blogPost);
