@@ -9,7 +9,7 @@ namespace HW_6.Test
         [SetUp]
         public void Setup()
         {
-            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            var option = new DbContextOptionsBuilder<ApplicationDbContext>()
             .UseInMemoryDatabase(databaseName: "Test")
             .Options;
         }
